@@ -1,13 +1,11 @@
 <template>
   <van-form @submit="onSubmit">
-    <van-cell-group inset>
-      <van-field
-          v-model="editUser.currentValue"
-          :name="editUser.editKey"
-          :label="editUser.editName"
-          :placeholder="`请输入${editUser.editName}`"
-      />
-    </van-cell-group>
+    <van-field
+        v-model="editUser.currentValue"
+        :name="editUser.editKey"
+        :label="editUser.editName"
+        :placeholder="`请输入${editUser.editName}`"
+    />
     <div style="margin: 16px;">
       <van-button round block type="primary" native-type="submit">
         提交
@@ -17,26 +15,33 @@
 </template>
 
 <script setup>
-import {useRoute} from "vue-router";
-import {useRouter} from "vue-router";
-import {ref} from "vue";
+
+import {useRoute, useRouter} from "vue-router"
 import myAxios from "../plugins/myAxios.ts";
 import {Toast} from "vant";
+import {getCurrentUser} from "../services/user";
+import {ref} from "vue";
 
-const route = useRoute()
-const router = useRouter()
+const router = useRouter();
+const route = useRoute();
 
 const editUser = ref({
   editKey: route.query.editKey,
   currentValue: route.query.currentValue,
-  editName: route.query.editName
+  editName: route.query.editName,
 })
 
-
 const onSubmit = async () => {
-  // todo 将 editKey,currentValue,editName 提交给后台
+  //获取用户信息
+  const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    Toast.fail('用户未登录')
+    return;
+  }
+
   const res = await myAxios.post('/user/update', {
-    'id': 1,
+    'id': currentUser.id,
     [editUser.value.editKey]: editUser.value.currentValue
   })
   console.log(res, '更新请求')
@@ -45,10 +50,9 @@ const onSubmit = async () => {
     router.back();
   } else {
     Toast.fail('修改错误');
-
   }
-};
 
+};
 </script>
 
 <style scoped>
