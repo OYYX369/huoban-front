@@ -11,12 +11,12 @@ import UserLoginPage from "../pages/UserLoginPage.vue";
 // 我们后面再讨论嵌套路由。
 const routes = [
     {path: '/', component: Index},
-    {path: '/Team', component: Team},
-    {path: '/User', component: User},
-    {path: '/User/login', component: UserLoginPage},
-    {path: '/User/list', component: SearchResultPage},
+    {path: '/team', component: Team},
+    {path: '/user', component: User},
+    {path: '/user/list', component: SearchResultPage},
     {path: '/user/edit', component: UserEditPage},
     {path: '/search', component: SearchPage},
+    {path: '/user/login', component: UserLoginPage},
 
 ]
 

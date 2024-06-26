@@ -21,14 +21,14 @@
 
 <script setup >
 import {onMounted, ref} from "vue";
-import {useRoute} from "vue-router";
+import {useRouter} from "vue-router";
 import {Toast} from "vant";
 
 import myAxios from "../plugins/myAxios.ts";
 
 import qs from 'qs';
 
-const route = useRoute();
+const route = useRouter();
 const {tags} = route.query;
 
 const mockUser = ref({

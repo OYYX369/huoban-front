@@ -2,15 +2,15 @@
 //自定义实例默认值
 import axios from "axios";
 
-const axiosUrl = axios.create({
+const myAxios = axios.create({
     baseURL: 'http://localhost:8080/api'
 });
 
-axiosUrl.defaults.withCredentials=true;
+myAxios.defaults.withCredentials=true;
 
 //拦截器
 // 添加请求拦截器
-axiosUrl.interceptors.request.use(function (config) {
+myAxios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
     console.log("请求发送了",config)
     return config;
@@ -20,7 +20,7 @@ axiosUrl.interceptors.request.use(function (config) {
 });
 
 // 添加响应拦截器
-axiosUrl.interceptors.response.use(function (response) {
+myAxios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
     console.log("请求收到了了",response)
     return response.data;
@@ -29,4 +29,4 @@ axiosUrl.interceptors.response.use(function (response) {
     return Promise.reject(error);
 });
 
-export default axiosUrl;
+export default myAxios;
