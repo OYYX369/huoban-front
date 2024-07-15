@@ -32,7 +32,7 @@ const editUser = ref({
 })
 
 const onSubmit = async () => {
-  //获取用户信息
+  //获取用户信息  封装起来
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {

@@ -1,10 +1,11 @@
 export type UserType = {
     id: number;
-    userName: string;
+    username?: string;
     userAccount: string;
     avatarUrl?: string;
     gender: number;
     profile?: string;
+    tags?: string;
     phone: string;
     email: string;
     userStatus: number;

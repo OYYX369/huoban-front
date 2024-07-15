@@ -14,6 +14,7 @@
     <router-view/>
   </div>
 
+
   <van-tabbar v-model="active"  @change="onChange"  >
     <van-tabbar-item to="/" icon="home-o" name="index">主页 </van-tabbar-item>
     <van-tabbar-item to="/team" icon="search" name="team">队伍</van-tabbar-item>
@@ -24,7 +25,7 @@
 
 <script setup>
 import Index from '../pages/Index.vue';
-import Team from '../pages/Team.vue';
+import Team from '../pages/TeamPage.vue';
 import { ref } from 'vue';
 import { Toast } from 'vant';
 import {useRouter} from "vue-router"
@@ -44,5 +45,7 @@ const onChange = (index) => Toast(`标签 ${index}` );
 </script>
 
 <style scoped>
-
+#content{
+  padding-bottom: 50px;
+}
 </style>

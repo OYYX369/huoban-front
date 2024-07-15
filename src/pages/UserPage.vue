@@ -1,6 +1,6 @@
 <template>
   <template v-if="user">
-    <van-cell title="昵称" is-link to="/user/edit" :value="user.userName" @click="toEdit('username','昵称',user.userName)"/>
+    <van-cell title="昵称" is-link to="/user/edit" :value="user.username" @click="toEdit('username','昵称',user.userName)"/>
     <van-cell title="账户" :value="user.userAccount" />
     <van-cell title="头像" is-link to="/user/edit" >
       <img style="height: 48px" :src="user.avatarUrl">
@@ -18,7 +18,7 @@
 import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
 import {Toast} from "vant";
-import {getCurrentUser} from "../services/user";
+import {getCurrentUser} from '../services/user.ts';
 
 // const user = {
 //   userName: '鱼皮',
