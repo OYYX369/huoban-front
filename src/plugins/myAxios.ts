@@ -2,8 +2,10 @@
 //自定义实例默认值
 import axios from "axios";
 
+const idDev = process.env.NODE_ENV === "development";
+
 const myAxios = axios.create({
-    baseURL: 'http://localhost:8080/api'
+    baseURL: idDev? 'http://localhost:8080/api' : "http://43.139.79.107:8080/api",
 });
 
 myAxios.defaults.withCredentials=true;
@@ -23,7 +25,7 @@ myAxios.interceptors.request.use(function (config) {
 myAxios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
     console.log("请求收到了了",response)
-    if(response?.data?.code === 40100){
+    if(response?.data?.code === 40101){
         const redirectUrl=window.location.href;
         window.location.href=`/user/login?redirect=${redirectUrl}`;
     }
