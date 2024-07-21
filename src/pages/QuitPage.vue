@@ -12,7 +12,7 @@ const router = useRouter(); // 创建路由实例
 
  const logout = () => {
  router.push({
- path: "/team/add"
+ path: "/user/login"
  })}
 </script>
 
