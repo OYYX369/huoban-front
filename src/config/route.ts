@@ -11,9 +11,11 @@ import UserLoginPage from "../pages/UserLoginPage.vue";
 import TeamAddPage from "../pages/TeamAddPage.vue";
 import TeamUpdatePage from "../pages/TeamUpdatePage.vue";
 import UserTeamCreatePage from "../pages/UserTeamCreatePage.vue";
+import QuitPage from "../pages/QuitPage.vue";
 
 const routes = [
     { path: '/', component: Index },
+    { path: '/quit', component: QuitPage },
     { path: '/team', title: '找队伍', component: Team },
     { path: '/team/add', title: '创建队伍', component: TeamAddPage },
     { path: '/team/update', title: '更新队伍', component: TeamUpdatePage },

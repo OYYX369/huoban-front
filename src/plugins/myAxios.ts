@@ -6,7 +6,9 @@ const idDev = process.env.NODE_ENV === "development";
 
 const myAxios = axios.create({
     //前端访问后端接口
-    baseURL: idDev? 'http://localhost:8080/api' : "http://localhost:8080/api",
+    baseURL: idDev? 'http://huoban-backend.ousir.icu' : "http://huoban-backend.ousir.icu",
+    // baseURL: 'http://huoban-backend.ousir.icu'
+    // http://43.139.79.107:8080/api
 });
 
 myAxios.defaults.withCredentials=true;

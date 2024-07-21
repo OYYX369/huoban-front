@@ -5,21 +5,27 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": " vite build",
+    "build": " vite build ",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tsparticles/vue3": "^3.0.1",
     "axios": "^1.7.2",
+    "element-plus": "^2.7.7",
     "qs": "^6.12.1",
+    "three": "^0.134.0",
     "vant": "^3.6.12",
+    "vanta": "^0.5.24",
     "vue": "^3.4.21",
-    "vue-router": "4"
+    "vue-router": "4",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.11",
     "@types/q": "^1.5.8",
     "@vitejs/plugin-vue": "^5.0.4",
     "cross-env": "^7.0.3",
+    "less": "^4.2.0",
     "typescript": "^5.2.2",
     "unplugin-vue-components": "^0.27.0",
     "vite": "^5.2.0",

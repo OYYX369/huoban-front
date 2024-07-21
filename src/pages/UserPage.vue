@@ -8,6 +8,10 @@
     <van-cell title="修改信息" is-link to="/user/update" />
     <van-cell title="我创建的队伍" is-link to="/user/team/create" />
     <van-cell title="我加入的队伍" is-link to="/user/team/join" />
+
+
+
+    <button @click="logout">退出登录</button>
   </template>
 </template>
 
@@ -45,6 +49,13 @@ const toEdit = (editKey: string,editName: string,currentValue: string) =>{
   })
 }
 
+
+//跳转到登录界面
+const logout = () => {
+  router.push({
+    path: "/user/login"
+  })
+}
 </script>
 
 <style scoped>
